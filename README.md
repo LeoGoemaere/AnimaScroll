@@ -7,6 +7,7 @@ You also can trigger the scroll manually without using a link thanks to the [Ani
 
 Why using it ?
 - Wrote in **pure Vanilla JS**, it doesn't require jQuery.
+- Maintains native use of html anchors.
 - Keeps **url up to date** with the hash history.
 - Makes **anchors more accurate** by taking into account fixed elements.
 - High flexibility with the [programmatic scroll](#programmatic-scroll).
@@ -40,12 +41,15 @@ You can use AnimaScroll by declaring it in the DOM like :
 
 ```html
 <a 
-	href="#scrollToIt"
+	href="#anchor"
 	data-anima-link
 	data-anima-duration="400"
 	data-anima-timing-curve="easeInQuad"
 	data-anima-shiftBy=".header, .banner"
 >My cool link</a>
+<!-- My site content -->
+<div id="anchor"></div>
+<!-- My site content -->
 ```
 **Only data-anima-link attribute is required.**
 
