@@ -1,12 +1,16 @@
 # AnimaScroll
 Create animate anchor in an easy way.
 
-AnimaScroll let you animate the anchor thanks to some datas on your link, or instanciate it programatically.
+AnimaScroll let you animate the anchor by passing some datas directly on your link, or with the constructor.
+
+You also can trigger the scroll manually without using a link thanks to the Animation class.
 
 Why using it ?
-- Keeps url up to date with the hash history.
-- Makes anchors more accurate by taking into account fixed elements !
-- Wrote in pure Vanilla JS, it doesn't require jQuery.
+- Wrote in **pure Vanilla JS**, it doesn't require jQuery.
+- Keeps **url up to date** with the hash history.
+- Makes **anchors more accurate** by taking into account fixed elements.
+- High flexibility with the scroll programmatic.
+- **TODO** - Good browsers supports.
 
 ## Getting started
 
@@ -20,16 +24,16 @@ Import AnimaScroll on your page. Use the **min file** in the dist folder.
 ```javascript
 new AnimaScroll({ link, duration, timingCurve, shiftBy });
 ```
-| Parameter	       | Type       | default   | Description                                                                                          |
-| :--------------- |:-----------| :---------| :----------------------------------------------------------------------------------------------------|
-| `link`           | *object*   | **null**  | The link element                                                                                      |
-| `duration`       | *number*   | **0**     | The scroll animation duration                                                                         |
-| `timingCurve`    | *string*   | **null**      | The timing curve function. You can check the list available by calling the AnimaScroll.timingCurves.  |
-| `shiftBy`        | *string*   | **null**      | The selectors of the elements whose height must be substracted from the scrolling distance.           |
+| Parameter	       | Type       | default     | Description                                                                                           |
+| :--------------- |:-----------| :-----------| :-----------------------------------------------------------------------------------------------------|
+| `link`           | *object*   | **null**    | The link element                                                                                      |
+| `duration`       | *number*   | **0**       | The scroll animation duration                                                                         |
+| `timingCurve`    | *string*   | **linear**  | The timing curve function. You can check the list available by calling the AnimaScroll.timingCurves.  |
+| `shiftBy`        | *string*   | **null**    | The selectors of the elements whose height must be substracted from the scrolling distance.           |
 
-## Usage
+### Usage
 
-In your main js file you can use AnimaScroll by declaring it in the DOM like :
+You can use AnimaScroll by declaring it in the DOM like :
 
 ```html
 <a 
@@ -37,15 +41,138 @@ In your main js file you can use AnimaScroll by declaring it in the DOM like :
 	data-anima-link
 	data-anima-duration="400"
 	data-anima-timing-curve="easeInQuad"
-	data-anima-shiftBy=".header, banner"
+	data-anima-shiftBy=".header, .banner"
 >My cool link</a>
 ```
+**Only data-anima-link attribute is required.**
 
-Or you can declaring it with the constructor like :
+Or you can declaring it with the constructor and then init using the init method.
 
+```javascript
+const link = new AnimaScroll({
+	link: document.querySelector('.my-link'),	// Required.
+	duration: 400,								// Optional.
+	timingCurve: 'easeInQuad',					// Optional.
+	shiftBy: '.header, .banner'					// Optional.
+});
+link.init();
+```
 
 ### Methods
-**init()**
+
+- **init()**: Initialize the link.
 ```javascript
-this.init();
+myAnimaScroll.init();
 ```
+
+### Callbacks
+
+- **onComplete()** :
+
+Called after the scrolling animation is complete.
+```javascript
+myAnimaScroll.onComplete = () => {
+	// Scroll is complete.
+};
+```
+
+- **onProgress(*animationProgress*, *animationRange*)** :
+
+| Parameter	          | Type       | Description                                                                                        |
+| :-------------------|:-----------|:-------------------------------------------------------------------------------------------------- |
+| `animationProgress` | *number*   | Return the animation progress which is between the current scroll position and the anchor element. |
+| `animationRange`    | *number*   | Return position of the animation in the range between [0, 1].                                      |
+
+Called while the scrolling animation is processing.
+```javascript
+myAnimaScroll.onProgress = (animationProgress, animationRange) => {
+	// Scroll is processing.
+};
+```
+
+## Programmatic scroll
+
+If you want to trigger a scroll action you can call the Animation class which is a sub-class of AnimaScroll.
+
+### Constructor
+
+```javascript
+new Animation({ fromValue, toValue, duration, direction, timingCurve });
+```
+| Parameter	    | Type       | default     | Description                                                                                           |
+| :-------------|:-----------| :-----------| :-----------------------------------------------------------------------------------------------------|
+| `fromValue`   | *number*   | **null**    | The link element                                                                                      |
+| `toValue`     | *number*   | **null**    | The scroll animation duration                                                                         |
+| `duration`    | *number*   | **null**    | The timing curve function. You can check the list available by calling the AnimaScroll.timingCurves.  |
+| `direction`   | *string*   | **scrollY** | The selectors of the elements whose height must be substracted from the scrolling distance.           |
+| `timingCurve` | *string*   | **linear**  | The selectors of the elements whose height must be substracted from the scrolling distance.           |
+
+### Usage
+
+You can trigger an animation scroll by declaring the constructor and then run animation by using the run() method :
+
+```javascript
+const animation = new Animation({ 
+	fromValue: 0,
+	toValue: 1000,
+	duration: 2000,
+	direction: 'scrollY',
+	timingCurve: 'easeInOutCubic'
+});
+animation.run();
+```
+
+### Methods
+
+- **run()**: Launch the animation.
+```javascript
+myAnimation.run();
+```
+
+- **stop()**: Stop the animation.
+```javascript
+myAnimation.stop();
+```
+
+### Callbacks
+
+- **onComplete()** :
+
+Called after the scrolling animation is complete.
+```javascript
+myAnimation.onComplete = () => {
+	// Scroll is complete.
+};
+```
+
+- **onProgress(*animationProgress*, *animationRange*)** :
+
+| Parameter	          | Type       | Description                                                               |
+| :-------------------|:-----------|:------------------------------------------------------------------------- |
+| `animationProgress` | *number*   | Return the animation progress which is between the fromValue and toValue. |
+| `animationRange`    | *number*   | Return position of the animation in the range between [0, 1].             |
+
+Called while the scrolling animation is processing.
+```javascript
+myAnimation.onProgress = (animationProgress, animationRange) => {
+	// Scroll is processing.
+};
+```
+
+## Timing curves functions
+
+Below are the timing curves options that you can use:
+
+* **linear** - no easing, no acceleration.
+* **easeInQuad** - accelerating from zero velocity.
+* **easeOutQuad** - decelerating to zero velocity.
+* **easeInOutQuad** - acceleration until halfway, then deceleration.
+* **easeInCubic** - accelerating from zero velocity.
+* **easeOutCubic** - decelerating to zero velocity.
+* **easeInOutCubic** - acceleration until halfway, then deceleration.
+* **easeInQuart** - accelerating from zero velocity.
+* **easeOutQuart** - decelerating to zero velocity.
+* **easeInOutQuart** - acceleration until halfway, then deceleration.
+* **easeInQuint** - accelerating from zero velocity.
+* **easeOutQuint** - decelerating to zero velocity.
+* **easeInOutQuint** - acceleration until halfway, then deceleration.

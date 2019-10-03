@@ -1,5 +1,5 @@
 class Animation {
-	constructor({ fromValue, toValue, duration, direction, timingCurve }) {
+	constructor({ fromValue = null, toValue = null, duration = null, direction = 'scrollY', timingCurve = 'linear' } = {}) {
 		this.fromValue = fromValue;
 		this.toValue = toValue;
 		this.duration = duration;
@@ -69,7 +69,7 @@ class Animation {
 	}
 	_processingAnimationProgress() {
 		this.animationProgress = this._getAnimProgress({
-			timingCurve: this.timingCurve,
+			timingCurve: Animation.timingCurves[this.timingCurve],
 			animationRange: this.currentAnimationRange,
 			animDistance: this._getAnimDistance(this.fromValue, this.toValue),
 			currentToValue: this._getCurrentToValue(this.fromValue, this.toValue)
@@ -198,7 +198,7 @@ class AnimaScroll {
 			fromValue: window.scrollY,
 			toValue: this.shiftBy ? scrollDistance - this._scrollingDistanceToBeSubstractedFrom(this.shiftBy) : scrollDistance,
 			duration: this.duration || 0,
-			timingCurve: Animation.timingCurves[this.timingCurve] || Animation.timingCurves.linear
+			timingCurve: this.timingCurve || 'linear'
 		});
 		animation.run();
 
