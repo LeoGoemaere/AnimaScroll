@@ -1,3 +1,5 @@
+"use strict";
+
 /**
  * Animation Class.
  * @class

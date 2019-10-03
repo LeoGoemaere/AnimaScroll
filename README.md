@@ -69,6 +69,7 @@ myAnimaScroll.init();
 ```
 
 ### Callbacks
+***Note:*** Always call the callbacks `BEFORE` the init() method.
 
 - **onComplete()** :
 
@@ -122,7 +123,8 @@ const animation = new Animation({
 	duration: 400,
 	direction: 'scrollY',
 	timingCurve: 'easeInOutCubic'
-}).run();
+});
+animation.run();
 ```
 
 ### Methods
@@ -138,10 +140,12 @@ myAnimation.stop();
 ```
 
 ### Callbacks
+***Note:*** Always call the callbacks `BEFORE` the run() method.
 
 - **onComplete()** :
 
 Called after the scrolling animation is complete.
+
 ```javascript
 myAnimation.onComplete = () => {
 	// Scroll is complete.
