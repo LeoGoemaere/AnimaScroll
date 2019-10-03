@@ -1,8 +1,8 @@
 # AnimaScroll
+
 Create animate anchor in an easy way.
 
 AnimaScroll let you animate the anchor by passing some datas directly on your link, or with the [constructor](#constructor).
-
 You also can trigger the scroll manually without using a link thanks to the [Animation class](#constructor-1).
 
 Why using it ?
@@ -11,6 +11,7 @@ Why using it ?
 - Makes **anchors more accurate** by taking into account fixed elements.
 - High flexibility with the [programmatic scroll](#programmatic-scroll).
 - **TODO** - Good browsers supports.
+- It using requestAnimationFrame for better animations performance.
 
 ## Getting started
 
