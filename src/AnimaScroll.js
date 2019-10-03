@@ -201,6 +201,8 @@ class AnimaScroll {
 	}
 	_scrollingDistanceToBeSubstractedFrom(value) {
 		const selectors = value.split(',');
+		// Catch error if a shiftBy param doesn't exist.
+		if (!selectors.every(selector => document.querySelector(selector))) { return console.error(`One of your shiftBy selector doesn't exist.`); }
 		return Array.from(selectors)
 		.map(selector => document.querySelector(selector).offsetHeight)
 		.reduce((accumulator, currentValue) => accumulator + currentValue);
@@ -240,9 +242,9 @@ class AnimaScroll {
 		const links = document.querySelectorAll('[data-anima-link]');
 		links.forEach(link => new AnimaScroll({
 			link: link,
-			duration: link.dataset.animaDuration || null,
-			timingCurve: link.dataset.animaTimingCurve || null,
-			shiftBy: link.dataset.animaShiftby || null
+			duration: link.getAttribute('data-anima-duration') || null,
+			timingCurve: link.getAttribute('data-anima-timing-curve') || null,
+			shiftBy: link.getAttribute('data-anima-shiftBy') || null
 		}).init())
 	}
 }
