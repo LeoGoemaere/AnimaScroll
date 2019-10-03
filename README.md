@@ -31,7 +31,7 @@ new AnimaScroll({ link, duration, timingCurve, shiftBy });
 | :--------------- |:-----------| :-----------| :-----------------------------------------------------------------------------------------------------|
 | `link`           | *object*   | **null**    | The link element.                                                                                     |
 | `duration`       | *number*   | **0**       | The scroll animation duration.                                                                        |
-| `timingCurve`    | *string*   | **linear**  | The timing curve function. You can check the list available by calling the AnimaScroll.timingCurves.  |
+| `timingCurve`    | *string*   | **linear**  | The timing curve function. [Check the list here](#timing-curves-functions).                           |
 | `shiftBy`        | *string*   | **null**    | The selectors of the elements whose height must be substracted from the scrolling distance.           |
 
 ### Usage
@@ -105,11 +105,11 @@ new Animation({ fromValue, toValue, duration, direction, timingCurve });
 ```
 | Parameter	    | Type       | default     | Description                                                                                           |
 | :-------------|:-----------| :-----------| :-----------------------------------------------------------------------------------------------------|
-| `fromValue`   | *number*   | **null**    | The link element.                                                                                     |
-| `toValue`     | *number*   | **null**    | The scroll animation duration.                                                                        |
-| `duration`    | *number*   | **null**    | The timing curve function. You can check the list available by calling the AnimaScroll.timingCurves.  |
-| `direction`   | *string*   | **scrollY** | The selectors of the elements whose height must be substracted from the scrolling distance.           |
-| `timingCurve` | *string*   | **linear**  | The selectors of the elements whose height must be substracted from the scrolling distance.           |
+| `fromValue`   | *number*   | **null**    | The starting scroll position.                                                                         |
+| `toValue`     | *number*   | **null**    | The ending scroll position.                                                                           |
+| `duration`    | *number*   | **null**    | The scroll animation duration.                                                                        |
+| `direction`   | *string*   | **scrollY** | The scroll direction, can be vertical (**scrollY**) or horizontal (**scrollX**).                     |
+| `timingCurve` | *string*   | **linear**  | The timing curve function. [Check the list here](#timing-curves-functions).                            |
 
 ### Usage
 
