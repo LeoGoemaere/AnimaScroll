@@ -9,7 +9,7 @@ Why using it ?
 - Wrote in **pure Vanilla JS**, it doesn't require jQuery.
 - Keeps **url up to date** with the hash history.
 - Makes **anchors more accurate** by taking into account fixed elements.
-- High flexibility with the scroll programmatic.
+- High flexibility with the programmatic scroll.
 - **TODO** - Good browsers supports.
 
 ## Getting started
@@ -26,8 +26,8 @@ new AnimaScroll({ link, duration, timingCurve, shiftBy });
 ```
 | Parameter	       | Type       | default     | Description                                                                                           |
 | :--------------- |:-----------| :-----------| :-----------------------------------------------------------------------------------------------------|
-| `link`           | *object*   | **null**    | The link element                                                                                      |
-| `duration`       | *number*   | **0**       | The scroll animation duration                                                                         |
+| `link`           | *object*   | **null**    | The link element.                                                                                     |
+| `duration`       | *number*   | **0**       | The scroll animation duration.                                                                        |
 | `timingCurve`    | *string*   | **linear**  | The timing curve function. You can check the list available by calling the AnimaScroll.timingCurves.  |
 | `shiftBy`        | *string*   | **null**    | The selectors of the elements whose height must be substracted from the scrolling distance.           |
 
@@ -50,10 +50,10 @@ Or you can declaring it with the constructor and then init using the init method
 
 ```javascript
 const link = new AnimaScroll({
-	link: document.querySelector('.my-link'),	// Required.
-	duration: 400,								// Optional.
-	timingCurve: 'easeInQuad',					// Optional.
-	shiftBy: '.header, .banner'					// Optional.
+	link: document.querySelector('.my-link'), // Required.
+	duration: 400, // Optional.
+	timingCurve: 'easeInQuad', // Optional.
+	shiftBy: '.header, .banner' // Optional.
 });
 link.init();
 ```
@@ -101,8 +101,8 @@ new Animation({ fromValue, toValue, duration, direction, timingCurve });
 ```
 | Parameter	    | Type       | default     | Description                                                                                           |
 | :-------------|:-----------| :-----------| :-----------------------------------------------------------------------------------------------------|
-| `fromValue`   | *number*   | **null**    | The link element                                                                                      |
-| `toValue`     | *number*   | **null**    | The scroll animation duration                                                                         |
+| `fromValue`   | *number*   | **null**    | The link element.                                                                                     |
+| `toValue`     | *number*   | **null**    | The scroll animation duration.                                                                        |
 | `duration`    | *number*   | **null**    | The timing curve function. You can check the list available by calling the AnimaScroll.timingCurves.  |
 | `direction`   | *string*   | **scrollY** | The selectors of the elements whose height must be substracted from the scrolling distance.           |
 | `timingCurve` | *string*   | **linear**  | The selectors of the elements whose height must be substracted from the scrolling distance.           |
@@ -115,7 +115,7 @@ You can trigger an animation scroll by declaring the constructor and then run an
 const animation = new Animation({ 
 	fromValue: 0,
 	toValue: 1000,
-	duration: 2000,
+	duration: 400,
 	direction: 'scrollY',
 	timingCurve: 'easeInOutCubic'
 });
