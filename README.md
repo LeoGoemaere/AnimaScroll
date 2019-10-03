@@ -1,15 +1,15 @@
 # AnimaScroll
 Create animate anchor in an easy way.
 
-AnimaScroll let you animate the anchor by passing some datas directly on your link, or with the constructor.
+AnimaScroll let you animate the anchor by passing some datas directly on your link, or with the [constructor](#constructor).
 
-You also can trigger the scroll manually without using a link thanks to the Animation class.
+You also can trigger the scroll manually without using a link thanks to the [Animation class](#constructor-1).
 
 Why using it ?
 - Wrote in **pure Vanilla JS**, it doesn't require jQuery.
 - Keeps **url up to date** with the hash history.
 - Makes **anchors more accurate** by taking into account fixed elements.
-- High flexibility with the programmatic scroll.
+- High flexibility with the [programmatic scroll](#programmatic-scroll).
 - **TODO** - Good browsers supports.
 
 ## Getting started
@@ -21,6 +21,8 @@ Import AnimaScroll on your page. Use the **min file** in the dist folder.
 ```
 
 ### Constructor
+
+**AnimaScroll**
 ```javascript
 new AnimaScroll({ link, duration, timingCurve, shiftBy });
 ```
@@ -96,6 +98,7 @@ If you want to trigger a scroll action you can call the Animation class which is
 
 ### Constructor
 
+**Animation**
 ```javascript
 new Animation({ fromValue, toValue, duration, direction, timingCurve });
 ```
@@ -118,8 +121,7 @@ const animation = new Animation({
 	duration: 400,
 	direction: 'scrollY',
 	timingCurve: 'easeInOutCubic'
-});
-animation.run();
+}).run();
 ```
 
 ### Methods
