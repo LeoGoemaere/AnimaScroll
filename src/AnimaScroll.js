@@ -1,3 +1,13 @@
+/**
+ * Animation Class.
+ * @class
+ * @constructor
+ * @param {number} fromValue - The starting scroll position.
+ * @param {number} toValue - The ending scroll position.
+ * @param {number} duration - The scroll animation duration.
+ * @param {string} direction - The scroll direction, can be vertical (scrollY) or horizontal (scrollX).
+ * @param {string} timingCurve - The timing curve function.
+ */
 class Animation {
 	constructor({ fromValue = null, toValue = null, duration = null, direction = 'scrollY', timingCurve = 'linear' } = {}) {
 		this.fromValue = fromValue;
@@ -57,9 +67,17 @@ class Animation {
 	    }
 		this.requestAnim = requestAnimationFrame(frame);
 	}
+	/**
+	 * @method run
+	 * @description Launch the animation.
+	 */
 	run() {
 		this.animate();
 	}
+	/**
+	 * @method stop
+	 * @description Stop the animation.
+	 */
 	stop() {
 		if (this.isAnimationRunning) {
 			this.isAnimationRunning = false;
