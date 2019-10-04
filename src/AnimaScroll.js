@@ -213,7 +213,7 @@ class AnimaScroll {
 		const selectors = value.split(',');
 		// Catch error if a shiftBy param doesn't exist.
 		if (!selectors.every(selector => document.querySelector(selector))) { return console.error(`One of your shiftBy selector doesn't exist.`); }
-		return Array.from(selectors)
+		return selectors
 		.map(selector => document.querySelector(selector).offsetHeight)
 		.reduce((accumulator, currentValue) => accumulator + currentValue);
 	}
@@ -250,12 +250,14 @@ class AnimaScroll {
 	}
 	static _withDOM() {
 		const links = document.querySelectorAll('[data-anima-link]');
-		links.forEach(link => new AnimaScroll({
-			link: link,
-			duration: link.getAttribute('data-anima-duration') || null,
-			timingCurve: link.getAttribute('data-anima-timing-curve') || null,
-			shiftBy: link.getAttribute('data-anima-shiftBy') || null
-		}).init())
+		for (let i = 0; i < links.length; i++) {
+			return new AnimaScroll({
+				link: links[i],
+				duration: links[i].getAttribute('data-anima-duration') || null,
+				timingCurve: links[i].getAttribute('data-anima-timing-curve') || null,
+				shiftBy: links[i].getAttribute('data-anima-shiftBy') || null
+			}).init();
+		}
 	}
 }
 
@@ -264,14 +266,40 @@ document.addEventListener('DOMContentLoaded', AnimaScroll._withDOM);
 function delegateTo({ element, withSelector }, callback) {
 	let elementIsFind;
 	let isSelectorExist = document.querySelector(withSelector) ? true : false;
-	if (!element.matches(withSelector) && isSelectorExist) {
-		elementIsFind = element.closest(withSelector) !== null ? true : false;
+	// Use custom macthes function if browser doesn't support native macthes method.
+	const elementMatches = polyfills.isMatchesSupported ? element.matches(withSelector) : polyfills.matches(element, withSelector);
+	if (!elementMatches && isSelectorExist) {
+		// Same thing for closest method.
+		const closestElement = polyfills.isClosestSupported ? element.closest(withSelector) : polyfills.closest(element, withSelector);
+		elementIsFind = closestElement !== null ? true : false;
 	} else {
 		elementIsFind = isSelectorExist ? true : false;
 	}
 	if (elementIsFind) {
 		// Passing the delegate current target element to the callback function.
-		const currentTarget = element.closest(withSelector);
+		const currentTarget = polyfills.isClosestSupported ? element.closest(withSelector) : polyfills.closest(element, withSelector);
 		callback(currentTarget);
 	}
 }
+
+// Polyfill object that store custom functions.
+const polyfills = {
+	matches: function(element, selector) {
+		var matches = (element.document || element.ownerDocument).querySelectorAll(selector),
+		i = matches.length;
+		while (--i >= 0 && matches.item(i) !== element) {}
+		return i > -1;            
+	},
+	isMatchesSupported: Element.prototype.matches ? true : false,
+	closest: function(element, selector) {
+		this.isSupported = Element.prototype.closest ? true : false;
+		var el = element;
+		if (!document.documentElement.contains(el)) return null;
+		do {
+			if (polyfills.matches(el, selector)) return el;
+			el = el.parentElement || el.parentNode;
+		} while (el !== null && el.nodeType == 1); 
+		return null;
+	},
+	isClosestSupported: Element.prototype.closest ? true : false
+};
