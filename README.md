@@ -11,7 +11,7 @@ Why using it ?
 - Keeps **url up to date** with the hash history.
 - Makes **anchors more accurate** by taking into account fixed elements.
 - High flexibility with the [programmatic scroll](#programmatic-scroll).
-- **TODO** - Good browsers supports.
+- Good browsers supports. (IE10 +).
 - It using requestAnimationFrame for better animations performance.
 
 ## Getting started
