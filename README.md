@@ -10,9 +10,9 @@ Why using it ?
 - Maintains native use of html anchors.
 - Keeps **url up to date** with the hash history.
 - Makes **anchors more accurate** by taking into account fixed elements.
-- High flexibility with the [programmatic scroll](#programmatic-scroll).
-- Good browsers supports. (IE10 +).
-- It using requestAnimationFrame for better animations performance.
+- **High flexibility** with the [programmatic scroll](#programmatic-scroll).
+- Good **browsers supports**. (IE10 +).
+- It using **requestAnimationFrame** for better animations performance.
 
 ## Getting started
 
