@@ -251,7 +251,7 @@ class AnimaScroll {
 	static _withDOM() {
 		const links = document.querySelectorAll('[data-anima-link]');
 		for (let i = 0; i < links.length; i++) {
-			return new AnimaScroll({
+			new AnimaScroll({
 				link: links[i],
 				duration: links[i].getAttribute('data-anima-duration') || null,
 				timingCurve: links[i].getAttribute('data-anima-timing-curve') || null,

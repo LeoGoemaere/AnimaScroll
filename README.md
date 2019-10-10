@@ -14,6 +14,16 @@ Why using it ?
 - Good **browsers supports**. (IE10 +).
 - It using **requestAnimationFrame** for better animations performance.
 
+## Demos
+
+See demos for each use cases.
+
+- The [HTML declaration](#html-declaration).
+<a href="https://codepen.io/LGoemaere/pen/poojJov" target="_blank">AnimaScroll with HTML declaration</a>
+
+- With constructor
+<a href="https://codepen.io/LGoemaere/pen/YzzyyaX" target="_blank">AnimaScroll with constructor</a>
+
 ## Getting started
 
 Import AnimaScroll on your page. Use the **min file** in the dist folder.
@@ -37,6 +47,7 @@ new AnimaScroll({ link, duration, timingCurve, shiftBy });
 
 ### Usage
 
+#### HTML Declaration
 You can use AnimaScroll by declaring it in the DOM like :
 
 ```html
@@ -53,6 +64,7 @@ You can use AnimaScroll by declaring it in the DOM like :
 ```
 **Only data-anima-link attribute is required.**
 
+#### With constructor
 Or you can declaring it with the constructor and then init using the init method.
 
 ```javascript
