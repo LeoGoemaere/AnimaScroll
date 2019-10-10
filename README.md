@@ -20,11 +20,11 @@ See demos for each use cases.
 
 - The [HTML declaration](#html-declaration). <br>
 
-Codepen: <a href="https://codepen.io/LGoemaere/pen/poojJov" target="_blank">AnimaScroll with HTML declaration</a>
+**Codepen**: <a href="https://codepen.io/LGoemaere/pen/poojJov" target="_blank">AnimaScroll with HTML declaration</a>
 
-- With constructor. <br> 
+- [With constructor](#with-constructor). <br> 
 
-Codepen: <a href="https://codepen.io/LGoemaere/pen/YzzyyaX" target="_blank">AnimaScroll with constructor</a>
+**Codepen**: <a href="https://codepen.io/LGoemaere/pen/YzzyyaX" target="_blank">AnimaScroll with constructor</a>
 
 ## Getting started
 
