@@ -303,3 +303,5 @@ const polyfills = {
 	},
 	isClosestSupported: Element.prototype.closest ? true : false
 };
+
+export { Animation, AnimaScroll };
