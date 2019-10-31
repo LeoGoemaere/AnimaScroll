@@ -1,5 +1,7 @@
 let UnminifiedWebpackPlugin = require('unminified-webpack-plugin');
 
+const path = require('path');
+
 module.exports = {
 	module: {
 	  rules: [
@@ -12,9 +14,12 @@ module.exports = {
 		}
 	  ]
 	},
+	entry: './src/Animascroll.js',
     output: {
-        path: './dist',
-        filename: '[name].min.js'
+		path: path.resolve(__dirname, 'dist'),
+		filename: 'Animascroll.min.js',
+		library: 'Anima',
+		libraryExport: 'default',
     },
     plugins: [
         new UnminifiedWebpackPlugin()

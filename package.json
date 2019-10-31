@@ -5,8 +5,8 @@
   "main": "gulpfile.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "webpack --mode development ./src/index.js --output ./dist/AnimaScroll.js",
-    "build": "webpack --mode production ./src/index.js --output ./dist/AnimaScroll.min.js"
+    "dev": "webpack --mode development",
+    "build": "webpack --mode production"
   },
   "license": "ISC",
   "devDependencies": {

@@ -1,3 +1,4 @@
+var Anima =
 /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
 /******/ 	var installedModules = {};
@@ -90,8 +91,6 @@
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-
-// CONCATENATED MODULE: ./src/modules/AnimaScroll.js
 /**
  * AnimaScroll v1.0
  * Create smooths anchors animations in the easiest way.
@@ -569,10 +568,10 @@ var polyfills = {
   },
   isClosestSupported: Element.prototype.closest ? true : false
 };
-
-// CONCATENATED MODULE: ./src/index.js
-
-
+/* harmony default export */ __webpack_exports__["default"] = ({
+  Animation: Animation,
+  AnimaScroll: AnimaScroll
+});
 
 /***/ })
-/******/ ]);
+/******/ ])["default"];
