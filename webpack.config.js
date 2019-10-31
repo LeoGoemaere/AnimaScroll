@@ -16,7 +16,7 @@ module.exports = {
 	},
 	entry: './src/Animascroll.js',
     output: {
-		path: path.resolve(__dirname, 'dist'),
+		path: path.resolve(__dirname, 'package/dist'),
 		filename: 'Animascroll.min.js',
 		library: 'Anima',
 		libraryExport: 'default',
