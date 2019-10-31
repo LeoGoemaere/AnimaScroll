@@ -20,6 +20,7 @@ module.exports = {
 		filename: 'Animascroll.min.js',
 		library: 'Anima',
 		libraryExport: 'default',
+		libraryTarget: 'umd'
     },
     plugins: [
         new UnminifiedWebpackPlugin()
