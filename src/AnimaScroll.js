@@ -1,9 +1,8 @@
 /**
- * AnimaScroll v1.0
- * Create smooths anchors animations in the easiest way.
+ * AnimaScroll
+ * Create animate anchor in an easy way.
  *
- * Copyright 2019 - Léo Goémaere
- *
+ * Copyright 2019 - Léo Goemaere
  * MIT License
  *
  */

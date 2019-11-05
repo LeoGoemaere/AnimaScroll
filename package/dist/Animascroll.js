@@ -1,4 +1,4 @@
-(function webpackUniversalModuleDefinition(root, factory) {
+() => banner(function webpackUniversalModuleDefinition(root, factory) {
 	if(typeof exports === 'object' && typeof module === 'object')
 		module.exports = factory();
 	else if(typeof define === 'function' && define.amd)
@@ -101,11 +101,10 @@ return /******/ (function(modules) { // webpackBootstrap
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /**
- * AnimaScroll v1.0
- * Create smooths anchors animations in the easiest way.
+ * AnimaScroll
+ * Create animate anchor in an easy way.
  *
- * Copyright 2019 - Léo Goémaere
- *
+ * Copyright 2019 - Léo Goemaere
  * MIT License
  *
  */

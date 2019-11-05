@@ -1,6 +1,17 @@
+var webpack = require('webpack');
 let UnminifiedWebpackPlugin = require('unminified-webpack-plugin');
 
 const path = require('path');
+const modulePackage = require('./package/package.json');
+const banner = `
+	${modulePackage.name} - v${modulePackage.version}
+	${modulePackage.description}
+
+	https://github.com/${modulePackage.repository}
+
+	Copyright 2019 - ${modulePackage.author}
+	${modulePackage.license} License
+`;
 
 module.exports = {
 	module: {
@@ -23,6 +34,7 @@ module.exports = {
 		libraryTarget: 'umd'
     },
     plugins: [
-        new UnminifiedWebpackPlugin()
+		new UnminifiedWebpackPlugin(),
+		new webpack.BannerPlugin(banner)
     ]
   };

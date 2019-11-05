@@ -1,8 +1,5 @@
 {
-  "name": "AnimaScroll",
-  "version": "1.0.0",
-  "description": "",
-  "main": "gulpfile.js",
+  "name": "animascroll",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "webpack --mode development",
