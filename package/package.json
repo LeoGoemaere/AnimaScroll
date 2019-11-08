@@ -11,7 +11,9 @@
       "package",
       "anchor",
       "animate",
-      "scroll"
+      "link",
+      "scroll",
+      "smooth"
     ],
     "author": "Léo Goemaere"
   }
