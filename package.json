@@ -10,7 +10,7 @@
     "@babel/core": "^7.6.4",
     "@babel/preset-env": "^7.6.3",
     "babel-loader": "^8.0.6",
-    "browser-sync": "^2.12.8",
+    "browser-sync": "^2.27.10",
     "uglify-save-license": "^0.4.1",
     "uglifyjs-webpack-plugin": "^2.2.0",
     "unminified-webpack-plugin": "^2.0.0",
